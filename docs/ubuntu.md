@@ -50,9 +50,11 @@ Installation of `git` and `etckeeper` to version the `/etc` folder:
 
     apt install git etckeeper
 
-To display `git` in the prompt for `<user>`:
+To display `git` in the prompt for `root`:
 
     # Git config
+    source /etc/bash_completion.d/git-prompt
+
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWSTASHSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -64,11 +66,9 @@ To display `git` in the prompt for `<user>`:
         PS1='${debian_chroot:+($debian_chroot)}\u@\h \w$(__git_ps1) \$ '
     fi
 
-To display `git` in the prompt for `root`:
+To display `git` in the prompt for `<user>`:
 
     # Git config
-    source /etc/bash_completion.d/git-prompt
-
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWSTASHSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -216,9 +216,13 @@ Updating the package list:
 
     apt update
 
-Installtion of MySQL:
+Installation of MySQL:
 
     apt install mysql-server
+
+Remove the file:
+
+    rm mysql-apt-config_0.8.15-1_all.deb
 
 ### PHP 7.4 installation (optional)
 
@@ -260,7 +264,7 @@ Reload the Nginx server:
 
 Source: [UbuntuBackports](https://help.ubuntu.com/community/UbuntuBackports)
 
-Update the `/etc/apt/sources.list` file:
+Update the `/etc/apt/sources.list` at the bootm of file:
 
     # Ubuntu 18.04 LTS (Bionic) Backports
     deb http://archive.ubuntu.com/ubuntu bionic-backports main restricted universe multiverse
@@ -406,7 +410,7 @@ Reload the Nginx server:
 Source: [NodeJS installation](https://github.com/nodesource/distributions#debinstall)
 
     curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-    sudo apt-get install -y nodejs
+    apt install -y nodejs
 
 Installation of **Yarn**:
 

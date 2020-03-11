@@ -50,6 +50,19 @@ Installation of `git` and `etckeeper` to version the `/etc` folder:
 
     apt install git etckeeper
 
+To display `git` in the prompt for `root`:
+
+    # Git config
+    source /etc/bash_completion.d/git-prompt
+
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWSTASHSTATE=true
+    export GIT_PS1_SHOWUNTRACKEDFILES=true
+    export GIT_PS1_SHOWUPSTREAM=auto
+
+    # PS1 variable
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w$(__git_ps1) \$ '
+
 To display `git` in the prompt for `<user>`:
 
     # Git config
@@ -63,19 +76,6 @@ To display `git` in the prompt for `<user>`:
     else
         PS1='${debian_chroot:+($debian_chroot)}\u@\h \w$(__git_ps1) \$ '
     fi
-
-To display `git` in the prompt for `root`:
-
-    # Git config
-    source /etc/bash_completion.d/git-prompt
-
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWSTASHSTATE=true
-    export GIT_PS1_SHOWUNTRACKEDFILES=true
-    export GIT_PS1_SHOWUPSTREAM=auto
-
-    # PS1 variable
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w$(__git_ps1) \$ '
 
 ### SSH server configuration
 
@@ -217,9 +217,13 @@ Updating the package list:
 
     apt update
 
-Installtion of MySQL:
+Installation of MySQL:
 
     apt install mysql-server
+
+Remove the file:
+
+    rm mysql-apt-config_0.8.15-1_all.deb
 
 ### PHP 7.4 installation (optional)
 
@@ -261,7 +265,7 @@ Reload the Nginx server:
 
 Source: [Debian Backports](https://backports.debian.org/Instructions/)
 
-Update the `/etc/apt/sources.list` file:
+Update the `/etc/apt/sources.list` at the bootm of file:
 
     deb http://deb.debian.org/debian buster-backports main
 
