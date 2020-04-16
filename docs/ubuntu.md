@@ -224,6 +224,8 @@ Remove the file:
 
     rm mysql-apt-config_0.8.15-1_all.deb
 
+[Create a new user for MySQL](./create_user_mysql.md)
+
 ### PHP 7.4 installation (optional)
 
 Source: [How To Install PHP (7.4, 7.3 to 7.0) on Ubuntu 18.04 & 16.04 via PPA](https://tecadmin.net/install-php-7-on-ubuntu/)

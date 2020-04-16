@@ -225,6 +225,8 @@ Remove the file:
 
     rm mysql-apt-config_0.8.15-1_all.deb
 
+[Create a new user for MySQL](./create_user_mysql.md)
+
 ### PHP 7.4 installation (optional)
 
 Source: [How To Install PHP on Debian 10 (Buster)](https://tecadmin.net/install-php-on-debian-10-buster/)
