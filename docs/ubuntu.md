@@ -199,6 +199,50 @@ Apply configuration:
 
 You can see that the server is running.
 
+### MongoDB installation
+
+    apt install -y mongodb
+
+Check the service’s status:
+
+    systemctl status mongodb
+
+You’ll see this output:
+
+```
+● mongodb.service - An object/document-oriented database
+   Loaded: loaded (/lib/systemd/system/mongodb.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2018-05-26 07:48:04 UTC; 2min 17s ago
+     Docs: man:mongod(1)
+ Main PID: 2312 (mongod)
+    Tasks: 23 (limit: 1153)
+   CGroup: /system.slice/mongodb.service
+           └─2312 /usr/bin/mongod --unixSocketPrefix=/run/mongodb --config /etc/mongodb.conf
+```
+
+We can verify this further by actually connecting to the database server and executing a diagnostic command:
+
+    mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+
+This will output the current database version, the server address and port, and the output of the status command:
+
+```
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+{
+        "authInfo" : {
+                "authenticatedUsers" : [ ],
+                "authenticatedUserRoles" : [ ]
+        },
+        "ok" : 1
+}
+```
+
+Enabled MongoDB at the start of server:
+
+    systemctl enable mongodb
+
 ### MySQL installation
 
 Download MySQL and extract the archive:
