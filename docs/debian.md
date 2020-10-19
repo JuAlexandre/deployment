@@ -374,6 +374,12 @@ Add these lines to redirect `http` requests to `https`:
       return 301 https://$host$request_uri;
     }
 
+In order to allow the renewal of SSL certificates (`certbot renew`):
+
+    location ~ /.well-known {
+        allow all;
+    }
+
 Reload the Nginx server:
 
     /etc/init.d/nginx restart
